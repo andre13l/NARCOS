@@ -120,6 +120,13 @@ CREATE TABLE article_topic(
   PRIMARY KEY(article_id, topic_id)
 );
 
+-----------------------------------------
+
+CREATE TABLE topic_follow(
+  user_id INTEGER REFERENCES authenticated_user(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  topic_id INTEGER REFERENCES topic(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  PRIMARY KEY(user_id, topic_id)
+);
 
 -----------------------------------------
 
